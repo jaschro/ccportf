@@ -3,76 +3,78 @@
     --text-color: #1a1a1a;
     --accent-color: #757575;
     --border-color: #eeeeee;
-    --spacing: 5vw; /* Using 'viewport width' for fluid spacing */
-    --max-content-width: 900px; 
+    --spacing: 2rem;
+    --max-content-width: 800px; 
 }
 
 * { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* Restored Font Stack: Clean, Modern, Professional */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden; /* Prevents side-to-side scrolling */
-}
-
-/* Main Container - The "Wrapper" */
-main {
-    width: 90%; /* Scale to screen */
-    max-width: var(--max-content-width);
-    margin: 0 auto;
-    padding: var(--spacing) 0;
 }
 
 nav {
-    width: 90%;
     max-width: var(--max-content-width);
     margin: 0 auto;
+    padding: 2rem var(--spacing);
     display: flex;
     justify-content: space-between;
-    padding: 2rem 0;
 }
 
 .logo { font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; }
 
-/* The Hero */
-.hero { padding: 5vh 0; }
-h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 300; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
 
-/* The Grid */
+main {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+.hero { padding: 4rem 0; }
+h1 { font-size: 2rem; font-weight: 300; margin: 0; }
+
 .project-grid {
     display: flex;
-    flex-direction: column; /* Stacks items vertically for maximum control */
-    gap: 6rem;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-/* Individual Project Cards */
-.project-card {
-    width: 100%;
-}
-
+/* IMAGE SIZE CONTROL */
 .project-card img {
-    width: 100%; /* Fill the container */
-    max-width: 100%; /* Never wider than the container */
-    height: auto;
     display: block;
+    height: auto;
     border: 1px solid var(--border-color);
+    
+    /* This makes the images much, much smaller */
+    width: 100%; 
+    max-width: 400px; /* Adjust this number to make them even smaller (e.g., 300px) */
+    
+    margin-bottom: 1rem;
 }
 
-/* Special sizing for the smaller supporting images */
-.project-card:not(.large) img {
-    max-width: 600px; /* Constrains secondary images to be smaller */
+/* The "Large" drawing gets a slightly bigger limit, but still restrained */
+.project-card.large img {
+    max-width: 550px; 
 }
 
 .project-info {
-    margin-top: 1.5rem;
     max-width: 500px;
 }
 
-h3 { font-size: 1.1rem; margin: 0 0 0.5rem 0; }
-.location { font-size: 0.7rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; }
-.description, .caption { font-size: 0.9rem; color: var(--accent-color); }
+h3 { font-size: 1rem; margin: 0 0 0.25rem 0; font-weight: 600; }
+.location { font-size: 0.7rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.description, .caption { font-size: 0.85rem; color: var(--accent-color); }
 
 footer { padding: 5rem 0; text-align: center; font-size: 0.7rem; color: var(--accent-color); }
