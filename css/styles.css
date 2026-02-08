@@ -1,37 +1,84 @@
 :root {
     --bg-color: #ffffff;
     --text-color: #1a1a1a;
-    --accent-color: #888888;
+    --accent-color: #757575;
+    --border-color: #eeeeee;
     --spacing: 2rem;
 }
 
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
+/* Navigation */
 nav {
+    display: flex;
+    justify-content: space-between;
     padding: var(--spacing);
-    font-weight: 700;
-    letter-spacing: 2px;
+    border-bottom: 1px solid var(--border-color);
 }
 
+.nav-links a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
 .hero {
-    padding: calc(var(--spacing) * 4) var(--spacing);
-    max-width: 800px;
+    padding: 10vh var(--spacing);
 }
 
-h1 {
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
-    transition: opacity 0.5s ease;
+h1 { font-size: 2.5rem; font-weight: 300; margin: 0; }
+
+/* The Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    padding: var(--spacing);
 }
 
-p {
+.project-card h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.2rem 0;
+    font-weight: 500;
+}
+
+.project-card p {
     color: var(--accent-color);
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    margin: 0;
 }
+
+/* Gray boxes for images we don't have yet */
+.image-placeholder {
+    background: #f9f9f9;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccc;
+    font-size: 2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.image-placeholder:hover {
+    background: #f0f0f0;
+}
+
+.artwork-section {
+    padding: 10vh var(--spacing);
+}
+
+hr { border: 0; border-top: 1px solid var(--border-color); margin-bottom: 3rem; }
