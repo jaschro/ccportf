@@ -3,55 +3,49 @@
     --text-color: #1a1a1a;
     --accent-color: #757575;
     --border-color: #eeeeee;
-    --spacing: 3rem;
-    --max-content-width: 1000px; /* Limits how wide the whole site gets */
+    --spacing: 5vw; /* Using 'viewport width' for fluid spacing */
+    --max-content-width: 900px; 
 }
 
 * { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden; /* Prevents side-to-side scrolling */
 }
 
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem var(--spacing);
-    max-width: var(--max-content-width);
-    margin: 0 auto; /* Centers the nav */
-}
-
-.logo { font-weight: 700; letter-spacing: 2px; }
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-color);
-    margin-left: 2rem;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-}
-
-/* Main Container */
+/* Main Container - The "Wrapper" */
 main {
+    width: 90%; /* Scale to screen */
     max-width: var(--max-content-width);
     margin: 0 auto;
-    padding: 0 var(--spacing);
+    padding: var(--spacing) 0;
 }
 
-.hero { padding: 10vh 0; }
-h1 { font-size: 2.5rem; font-weight: 300; }
+nav {
+    width: 90%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
 
-/* The Project Grid */
+.logo { font-weight: 700; letter-spacing: 2px; font-size: 0.9rem; }
+
+/* The Hero */
+.hero { padding: 5vh 0; }
+h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); font-weight: 300; }
+
+/* The Grid */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 4rem;
-    margin-bottom: 5rem;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically for maximum control */
+    gap: 6rem;
 }
 
 /* Individual Project Cards */
@@ -59,46 +53,26 @@ h1 { font-size: 2.5rem; font-weight: 300; }
     width: 100%;
 }
 
-/* This is the secret: Constraining the Image size */
 .project-card img {
-    width: 100%;
-    max-width: 450px; /* Prevents images from getting too huge */
+    width: 100%; /* Fill the container */
+    max-width: 100%; /* Never wider than the container */
     height: auto;
     display: block;
     border: 1px solid var(--border-color);
 }
 
-/* Special rule for that big first section drawing */
-.project-card.large {
-    grid-column: 1 / -1; /* Spans both columns */
-}
-
-.project-card.large img {
-    max-width: 800px; /* Allows the main drawing to be slightly larger */
+/* Special sizing for the smaller supporting images */
+.project-card:not(.large) img {
+    max-width: 600px; /* Constrains secondary images to be smaller */
 }
 
 .project-info {
     margin-top: 1.5rem;
+    max-width: 500px;
 }
 
-h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+h3 { font-size: 1.1rem; margin: 0 0 0.5rem 0; }
+.location { font-size: 0.7rem; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; }
+.description, .caption { font-size: 0.9rem; color: var(--accent-color); }
 
-.location {
-    font-size: 0.75rem;
-    color: var(--accent-color);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.description, .caption {
-    font-size: 0.9rem;
-    color: var(--accent-color);
-    max-width: 500px; /* Limits text width for better readability */
-}
-
-footer {
-    text-align: center;
-    padding: 5rem;
-    font-size: 0.8rem;
-    color: var(--accent-color);
-}
+footer { padding: 5rem 0; text-align: center; font-size: 0.7rem; color: var(--accent-color); }
